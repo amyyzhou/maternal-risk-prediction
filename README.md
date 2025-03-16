@@ -1,7 +1,8 @@
 # maternal-risk-prediction
 A Random Forest model, a Flask API for predictions, and a Streamlit chatbot
 
-Overview
+Overview:
+
 Maternal health is a crucial aspect of public health, and early risk assessment can help prevent complications. This project uses machine learning to predict maternal health risks based on key physiological indicators such as blood pressure, blood sugar levels, body temperature, and heart rate.
 
 The project consists of three main components:
