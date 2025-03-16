@@ -16,13 +16,21 @@ The model categorizes maternal health risk into:
 - High Risk (2)
 
 📂 Maternal-Health-Risk-Prediction
+
 │── 📄 app.py                # Flask API for model prediction
+
 │── 📄 chatbot.py            # Streamlit chatbot UI
+
 │── 📄 maternal_risk_prediction.py  # Model training and evaluation
+
 │── 📄 requirements.txt      # Required dependencies
+
 │── 📄 Maternal Health Risk Data Set.csv  # Dataset
+
 │── 📄 maternal_risk_model.pkl  # Trained model file
+
 │── 📄 scaler.pkl            # StandardScaler object for input transformation
+
 └── 📄 README.md             # Project documentation
 
 ## **🛠 Installation & Setup**
