@@ -99,3 +99,8 @@ The user clicks "Predict Risk".
 3️⃣ Receives & Displays Prediction:
 - The API responds with the predicted risk level.
 - The chatbot displays the result in a user-friendly format.
+
+## **Acknowledgement & Contributor**
+Dataset sourced from UCI Machine Learning Repository: https://archive.ics.uci.edu/dataset/863/maternal+health+risk
+
+Amy Zhou – Machine Learning & Backend Development
