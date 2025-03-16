@@ -2,6 +2,7 @@
 
 ## **📖 Overview**
 **Early assessment of maternal health risk can prevent complications during pregnancy.**
+Currently deployed here: https://maternal-risk-prediction-9nzamhgvrmyty3m5ufgqmd.streamlit.app/
 
 📂 Maternal-Health-Risk-Prediction
 ```
