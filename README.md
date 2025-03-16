@@ -6,11 +6,12 @@ Maternal health is a crucial aspect of public health, and early risk assessment 
 
 The project consists of three main components:
 
-Machine Learning Model – A trained Random Forest Classifier for risk prediction.
-Flask API – A lightweight API that serves predictions.
-Streamlit Chatbot UI – An interactive chatbot interface for users to assess their risk levels.
+- Machine Learning Model: A trained Random Forest Classifier for risk prediction.
+- Flask API: An API that serves predictions.
+- Streamlit Chatbot UI: An interactive chatbot interface for users to assess their risk levels.
 
 Features
+
 ✅ Predicts maternal health risks as Low Risk, Mid Risk, or High Risk
 
 ✅ Accepts user input for age, blood pressure, blood sugar, temperature, and heart rate
