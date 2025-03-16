@@ -3,17 +3,15 @@ import pickle
 import numpy as np
 from flask_cors import CORS
 
-# Load the trained model and scaler
+# Load trained model and scaler
 with open("maternal_risk_model.pkl", "rb") as file:
     model = pickle.load(file)
 
 with open("scaler.pkl", "rb") as file:
     scaler = pickle.load(file)
 
-# Expected features (MUST match the training dataset)
+# Expected features (match training dataset) & define risk level mapping
 expected_features = ["Age", "SystolicBP", "DiastolicBP", "BS", "BodyTemp", "HeartRate"]
-
-# Define risk level mapping
 risk_mapping = {0: "Low Risk", 1: "Mid Risk", 2: "High Risk"}
 
 # Initialize Flask app
@@ -30,13 +28,13 @@ def predict():
         if missing_features:
             return jsonify({"error": f"Missing features: {', '.join(missing_features)}"}), 400
 
-        # Convert input data into numpy array
+        # Convert input data -> numpy array
         features = np.array([data[feat] for feat in expected_features]).reshape(1, -1)
 
-        # Standardize the input data
+        # Standardize input data
         features_scaled = scaler.transform(features)
 
-        # Make a prediction
+        # Make prediction
         prediction = model.predict(features_scaled)[0]
         risk_level = risk_mapping[prediction]
 
