@@ -10,13 +10,6 @@ This project uses **machine learning** to predict **maternal health risks** base
 ✔ **Heart Rate**  
 
 It consists of:  
-1️⃣ **A trained Random Forest model** for risk prediction.  
-2️⃣ **A Flask API** for serving predictions.  
-3️⃣ **A Streamlit chatbot** for an interactive experience.
-
----
-
-## 🔧 **Installation & Setup**
-### ✅ **Step 1: Install Dependencies**
-```bash
-pip install -r requirements.txt
+- **A trained Random Forest model** for risk prediction.
+- **A Flask API** for serving predictions.
+- **A Streamlit chatbot** for an interactive experience.
