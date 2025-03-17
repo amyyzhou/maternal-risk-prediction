@@ -1,40 +1,34 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 import pickle
 import numpy as np
-from flask_cors import CORS
 
-# Load trained model and scaler
+app = Flask(__name__)
+CORS(app)  # ✅ Allow cross-origin requests
+
+# Load model and scaler
 with open("maternal_risk_model.pkl", "rb") as file:
     model = pickle.load(file)
 
 with open("scaler.pkl", "rb") as file:
     scaler = pickle.load(file)
 
-# Expected features (match training dataset) & define risk level mapping
+# Expected features
 expected_features = ["Age", "SystolicBP", "DiastolicBP", "BS", "BodyTemp", "HeartRate"]
-risk_mapping = {0: "Low Risk", 1: "Mid Risk", 2: "High Risk"}
 
-# Initialize Flask app
-app = Flask(__name__)
-CORS(app)  # Enable CORS for frontend communication
+# Risk level mapping
+risk_mapping = {0: "Low Risk", 1: "Mid Risk", 2: "High Risk"}
 
 @app.route("/predict", methods=["POST"])
 def predict():
     try:
         data = request.json
-
-        # Check if all required features are provided
         missing_features = [feat for feat in expected_features if feat not in data]
         if missing_features:
             return jsonify({"error": f"Missing features: {', '.join(missing_features)}"}), 400
 
-        # Convert input data -> numpy array
         features = np.array([data[feat] for feat in expected_features]).reshape(1, -1)
-
-        # Standardize input data
         features_scaled = scaler.transform(features)
-
-        # Make prediction
         prediction = model.predict(features_scaled)[0]
         risk_level = risk_mapping[prediction]
 
@@ -43,9 +37,7 @@ def predict():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-# Run Flask app
-import os
-
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))  # Use Render's PORT or default to 5000
+    import os
+    port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
