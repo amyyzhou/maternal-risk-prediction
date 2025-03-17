@@ -24,8 +24,8 @@ if st.button("Predict Risk"):
     }
 
     # Send request to Flask API
-    response = requests.post("http://127.0.0.1:5000/predict", json=data)
-    result = response.json()
+    API_URL = "https://maternal-risk-prediction.onrender.com/predict"
+    result = API_URL.json()
 
     # Display predicted result
     if "Risk Level" in result:
